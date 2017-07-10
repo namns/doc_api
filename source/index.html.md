@@ -41,8 +41,8 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'email'         => 'namns@appota.com',
-            'password'      => '0966570544'
+            'email'         => 'namns1102@gmail.com',
+            'password'      => '123456789'
         )
     )
 );
