@@ -26,15 +26,7 @@ We have language bindings in Curl! You can view code examples in the dark area t
 > To authorize, use this code:
 
 
-```ruby
-
-```
-
-```python
-
-```
-
-```shell
+```php
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'http://api.dichvuchothuechodat.top/login');
 curl_setopt($ch, CURLOPT_POST, 1);
@@ -50,9 +42,6 @@ $response = curl_exec($ch);
 curl_close($ch);
 ```
 
-```javascript
-
-```
 > The above command returns JSON structured like this:
 
 ```json
@@ -151,15 +140,9 @@ Invalid email or password | { “result”: “error”, “messages”: “User
 
 ## Add order
 
-```ruby
 
-```
 
-```python
-
-```
-
-```shell
+```php
 <?php 
 $authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
 $ch = curl_init();
@@ -181,9 +164,6 @@ curl_close($ch);
 ?>
 ```
 
-```javascript
-
-```
 
 > The above command returns JSON structured like this:
 
@@ -241,15 +221,9 @@ Unable to add order when client status is Closed | {“result”:“error”,“
 
 ## Get product
 
-```ruby
 
-```
 
-```python
-
-```
-
-```shell
+```php
 <?php 
 $authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
 $ch = curl_init();
@@ -268,9 +242,7 @@ curl_close($ch);
 ?>
 ```
 
-```javascript
 
-```
 
 > The above command returns JSON structured like this:
 
@@ -330,15 +302,9 @@ Service id of another account| {“result”:“error”,“messages”:“Permi
 
 ## ApplyCredit
 
-```ruby
 
-```
 
-```python
-
-```
-
-```shell
+```php
 <?php 
 $authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
 $ch = curl_init();
@@ -357,9 +323,6 @@ curl_close($ch);
 ?>
 ```
 
-```javascript
-
-```
 
 > The above command returns JSON structured like this:
 
@@ -406,15 +369,8 @@ Invoice id of another accoun | {“result”:“error”,“messages”:“Permi
 
 ## Get invoice
 
-```ruby
 
-```
-
-```python
-
-```
-
-```shell
+```php
 <?php 
 $authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
 $ch = curl_init();
@@ -431,10 +387,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
 $response = curl_exec($ch);
 curl_close($ch);
 ?>
-```
-
-```javascript
-
 ```
 
 > The above command returns JSON structured like this:
@@ -523,15 +475,8 @@ Invoice id of another account	| {“result”:“error”,“messages”:“Perm
 
 ## Get invoice product
 
-```ruby
 
-```
-
-```python
-
-```
-
-```shell
+```php
 <?php 
 $authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
 $ch = curl_init();
@@ -550,9 +495,6 @@ curl_close($ch);
 ?>
 ```
 
-```javascript
-
-```
 
 > The above command returns JSON structured like this:
 
@@ -607,15 +549,7 @@ Product not exists or Permission denied!| {“result”:“error”,“messages�
 
 ## Add cancel request
 
-```ruby
-
-```
-
-```python
-
-```
-
-```shell
+```php
 <?php 
 $authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
 $ch = curl_init();
@@ -635,9 +569,6 @@ curl_close($ch);
 ?>
 ```
 
-```javascript
-
-```
 
 > The above command returns JSON structured like this:
 
