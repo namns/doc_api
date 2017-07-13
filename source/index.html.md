@@ -1443,7 +1443,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
              'ticketid' => '1',
             'message' => 'This is a sample ticket reply',
             'clientid' => '1',
-            'customfields' => ("1" => "Google"),
+            'customfields' => '("1" => "Google")',
             'useMarkdown' => 'true'
         )
     )
@@ -1535,7 +1535,7 @@ curl_close($ch);
 
 ```json
 {
-    "result": "success",
+    "result": "success"
 }
 ```
 
@@ -1669,7 +1669,7 @@ curl_close($ch);
 
 ```json
 {
-    "result": "success",
+    "result": "success"
 }
 ```
 
@@ -1767,3 +1767,370 @@ Order ID not found or Status not Pending | {"result": "error","message": "Order 
 token expired | { “error”: “token expired”}
 token invalid | { “error”: “token invalid”}
 
+
+#CapturePayment
+
+## CapturePayment
+
+```php
+<?php 
+$authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://api.dichvuchothuechodat.top/api/v1/CapturePayment');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+             'invoiceid' => '1',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+?>
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "result": "success",
+}
+```
+
+Attempt to capture a payment on an unpaid CC Invoice
+
+### HTTP Request
+
+`POST http://api.dichvuchothuechodat.top/api/v1/CapturePayment`
+### Request Parameters
+
+Parameter | Type | Description | Required
+-------------- | ------- | ----------------- | -----
+invoiceid | int | The ID of the pending order | yes
+cvv |  | string The CVV Number for the card being attempted | no
+
+
+### Response Parameters
+
+Parameter | Type | Description
+-------------- | ------- | -----------------
+result | string | The result of the operation: success or error
+
+### Error Responses
+
+Error | Result
+-------------- | -----------------
+Invoice Not Found or Not Unpaid | {"result": "error","message": "Invoice Not Found or Not Unpaid"}
+Payment Attempt Failed | {"result": "error","message": "Payment Attempt Failed"}
+token expired | { “error”: “token expired”}
+token invalid | { “error”: “token invalid”}
+
+
+#CloseClient
+
+## CloseClient
+
+```php
+<?php 
+$authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://api.dichvuchothuechodat.top/api/v1/CloseClient');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+             'clientid' => '1',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+?>
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "result": "success"
+}
+```
+
+Close a Client.
+
+This will close the client, cancel any invoices and set the status of all products to Cancelled or Terminated.
+
+
+### HTTP Request
+
+`POST http://api.dichvuchothuechodat.top/api/v1/CloseClient`
+### Request Parameters
+
+Parameter | Type | Description | Required
+-------------- | ------- | ----------------- | -----
+clientid | int | The ID of the client to close | yes
+
+
+### Response Parameters
+
+Parameter | Type | Description
+-------------- | ------- | -----------------
+result | string | The result of the operation: success or error
+clientid | int | The ID of the client that was closed.
+
+### Error Responses
+
+Error | Result
+-------------- | -----------------
+Client ID Not Found | {"result": "error","message": "Client ID Not Found"}
+token expired | { “error”: “token expired”}
+token invalid | { “error”: “token invalid”}
+
+
+#CreateInvoice
+
+## CreateInvoice
+
+```php
+<?php 
+$authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://api.dichvuchothuechodat.top/api/v1/CreateInvoice');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+             'userid' => '1',
+	    'status' => 'Unpaid',
+	    'sendinvoice' => '1',
+	    'paymentmethod' => 'mailin',
+	    'taxrate' => '10.00',
+	    'date' => '2016-01-01',
+	    'duedate' => '2016-01-08',
+	    'itemdescription1' => 'Sample Invoice Item',
+	    'itemamount1' => '15.95',
+	    'itemtaxed1' => '0',
+	    'itemdescription2' => 'Sample Second Invoice Item',
+	    'itemamount2' => '1.00',
+	    'itemtaxed2' => '1',
+	    'autoappliedcredit' => '0',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+?>
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "result": "success",
+    "invoiceid": "1",
+    "status": "Unpaid"
+}
+```
+
+Create an invoice using the provided parameters.
+
+
+### HTTP Request
+
+`POST http://api.dichvuchothuechodat.top/api/v1/CreateInvoice`
+### Request Parameters
+
+Parameter | Type | Description | Required
+-------------- | ------- | ----------------- | -----
+userid | int | 	The ID of the client to close | yes
+status | string | The status of the invoice being created (Defaults to Unpaid) | no
+draft | bool | Should the invoice be created in draft status (No need to pass $status also) | no
+sendinvoice | bool | Should the Invoice Created Email be sent to the client (cannot be used with $draft) | no
+paymentmethod | string | The payment method of the created invoice in system format | no
+taxrate | float | The first level tax rate to apply to the invoice to override the system default | no
+taxrate2 | float| The second level tax rate to apply to the invoice to override the system default | no
+date | \Carbon\Carbon | The date that the invoice should show as created YYYY-mm-dd | no
+duedate | \Carbon\Carbon | The due date of the newly created invoice YYYY-mm-dd | no
+notes | string | The notes to appear on the created invoice | no
+itemdescriptionx | string | The line items description X is an integer to add multiple invoice items | no
+itemamountx | float | The line items amount | no
+itemtaxedx | bool | The line items is taxed value | no
+autoapplycredit | bool | Should credit on the client account be automatically applied to the invoice | no
+
+
+### Response Parameters
+
+Parameter | Type | Description
+-------------- | ------- | -----------------
+result | string | The result of the operation: success or error
+invoiceid | int | The ID of the newly created invoice
+status | string | The status of the newly created invoice.
+
+### Error Responses
+
+Error | Result
+-------------- | -----------------
+Client ID Not Found | {"result": "error","message": "Client ID Not Found"}
+Cannot create and send a draft invoice in a single API request. Please create and send separately. | {"result": "error","message": "Cannot create and send a draft invoice in a single API request. Please create and send separately."}
+token expired | { “error”: “token expired”}
+token invalid | { “error”: “token invalid”}
+
+
+#CreateOAuthCredential
+
+## CreateOAuthCredential
+
+```php
+<?php 
+$authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://api.dichvuchothuechodat.top/api/v1/CreateOAuthCredential');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+             'granttype' => 'single_sign_on',
+	    'scope' => 'clientarea:sso clientarea:billing_info clientarea:announcements',
+	    'serviceId' => '1',
+	    'description' => 'Billing and Announcements SSO',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+?>
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "result": "success",
+    "credentialId": "1",
+    "clientIdentifier": "COMPANY-NAME.SQxOYrZOUTQC8YTkLQuQ0w==",
+    "clientSecret": "60XScB\/W8zzxtciWlvX8+OoO4ZAQj8dNLeFIulRlYhDgksrSJd0Olv+X7wyoJEWEOpZ9IivCaySN7s+\/a++Tlg=="
+}
+```
+
+Create an OAuth Credential.
+
+
+### HTTP Request
+
+`POST http://api.dichvuchothuechodat.top/api/v1/CreateOAuthCredential`
+### Request Parameters
+
+Parameter | Type | Description | Required
+-------------- | ------- | ----------------- | -----
+grantType | string | One of ‘authorization_code’ or ‘single_sign_on’ | yes
+scope | string | A space separated list of valid scopes from tbloauthserver_scopes | yes
+name | string | The name to give the oAuth Credential for the authorization_code $grantType | no
+serviceId | int | The id of the service for the single_sign_on $grantType | no
+description | string | The description of the OAuth Credential | no
+logoUri | string | URL or Path Relative to the Base WHMCS Client Area Directory to a logo image file for this application | no
+redirectUri | string| Authorised Redirect URIs | no
+
+### Response Parameters
+
+Parameter | Type | Description
+-------------- | ------- | -----------------
+result | string | The result of the operation: success or error
+credentialId | int | The ID of the newly created oauth credential
+clientIdentifier | string | The randomly generated oauth client identifier.
+clientSecret | string | The randomly generated secret for the auth credential.
+
+### Error Responses
+
+Error | Result
+-------------- | -----------------
+A valid grant type is required. | {"result": "error","message": "A valid grant type is required."}
+The requested grant type “x” is invalid. | {"result": "error","message": "The requested grant type “x” is invalid."}
+A service ID is required for the single sign-on grant type | {"result": "error","message": "A service ID is required for the single sign-on grant type"}
+At least one valid scope is required. | {"result": "error","message": "At least one valid scope is required."}
+The requested scope “x” is invalid | {"result": "error","message": "The requested scope “x” is invalid."}
+token expired | { “error”: “token expired”}
+token invalid | { “error”: “token invalid”}
+
+
+#CreateProject
+
+## CreateProject
+
+```php
+<?php 
+$authorization = array('Authorization: Bearer ' . 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://api.dichvuchothuechodat.top/api/v1/CreateProject');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+             'title' => 'This is a Test Project',
+    		'adminid' => '2',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+?>
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "result": "success",
+    "message": "Project has been created"
+}
+```
+
+Creates a new project
+
+
+### HTTP Request
+
+`POST http://api.dichvuchothuechodat.top/api/v1/CreateProject`
+### Request Parameters
+
+Parameter | Type | Description | Required
+-------------- | ------- | ----------------- | -----
+title | string | The title of the new project | yes
+adminid | int | The adminId the project will be associated with| yes
+userid | int | The user that the project is for | no
+status | string | The status of the project as defined in Project Management Settings | no
+created | \Carbon\Carbon | The created date of the project in Y-m-d format | no
+duedate | \Carbon\Carbon | The duedate date of the project in Y-m-d format | no
+completed | bool| Is the project completed | no
+ticketids | string| A comma separated list of ticket IDs to associate with the project | no
+invoiceids | string| A comma separated list of invoice IDs to associate with the project | no
+
+### Response Parameters
+
+Parameter | Type | Description
+-------------- | ------- | -----------------
+result | string | The result of the operation: success or error
+message | string | ‘Project has been created’
+
+
+### Error Responses
+
+Error | Result
+-------------- | -----------------
+Client ID Not Found | {"result": "error","message": "Client ID Not Found"}
+Admin ID not Set. | {"result": "error","message": "Admin ID not Set."}
+Admin ID Not Found | {"result": "error","message": "Admin ID Not Found"}
+Project Management is not active. | {"result": "error","message": "Project Management is not active."}
+Project Title is Required. | {"result": "error","message": "Project Title is Required."}
+token expired | { “error”: “token expired”}
+token invalid | { “error”: “token invalid”}
