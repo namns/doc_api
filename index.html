@@ -2968,7 +2968,7 @@ curl_close($ch);
              <span class="s1">'ticketid'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
             <span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="s1">'This is a sample ticket reply'</span><span class="p">,</span>
             <span class="s1">'clientid'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
-            <span class="s1">'customfields'</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="s2">"1"</span> <span class="o">=&gt;</span> <span class="s2">"Google"</span><span class="p">),</span>
+            <span class="s1">'customfields'</span> <span class="o">=&gt;</span> <span class="s1">'("1" =&gt; "Google")'</span><span class="p">,</span>
             <span class="s1">'useMarkdown'</span> <span class="o">=&gt;</span> <span class="s1">'true'</span>
         <span class="p">)</span>
     <span class="p">)</span>
@@ -3151,7 +3151,7 @@ curl_close($ch);
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Add a transaction to the system.</p>
@@ -3417,7 +3417,7 @@ token invalid | { “error”: “token invalid”}</p>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Activate affiliate referrals for a client.</p>
@@ -3605,6 +3605,719 @@ token invalid | { “error”: “token invalid”}</p>
 <tr>
 <td>Order ID not found or Status not Pending</td>
 <td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Order ID not found or Status not Pending&rdquo;}</td>
+</tr>
+<tr>
+<td>token expired</td>
+<td>{ “error”: “token expired”}</td>
+</tr>
+<tr>
+<td>token invalid</td>
+<td>{ “error”: “token invalid”}</td>
+</tr>
+</tbody></table>
+
+<h1 id="capturepayment">CapturePayment</h1>
+
+<h2 id="capturepayment">CapturePayment</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$authorization</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8'</span><span class="p">);</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'http://api.dichvuchothuechodat.top/api/v1/CapturePayment'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$authorization</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span>
+    <span class="nb">http_build_query</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+             <span class="s1">'invoiceid'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Attempt to capture a payment on an unpaid CC Invoice</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.dichvuchothuechodat.top/api/v1/CapturePayment</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The ID of the pending order</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>cvv</td>
+<td></td>
+<td>string The CVV Number for the card being attempted</td>
+<td>no</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>string</td>
+<td>The result of the operation: success or error</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Invoice Not Found or Not Unpaid</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Invoice Not Found or Not Unpaid&rdquo;}</td>
+</tr>
+<tr>
+<td>Payment Attempt Failed</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Payment Attempt Failed&rdquo;}</td>
+</tr>
+<tr>
+<td>token expired</td>
+<td>{ “error”: “token expired”}</td>
+</tr>
+<tr>
+<td>token invalid</td>
+<td>{ “error”: “token invalid”}</td>
+</tr>
+</tbody></table>
+
+<h1 id="closeclient">CloseClient</h1>
+
+<h2 id="closeclient">CloseClient</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$authorization</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8'</span><span class="p">);</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'http://api.dichvuchothuechodat.top/api/v1/CloseClient'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$authorization</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span>
+    <span class="nb">http_build_query</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+             <span class="s1">'clientid'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Close a Client.</p>
+
+<p>This will close the client, cancel any invoices and set the status of all products to Cancelled or Terminated.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.dichvuchothuechodat.top/api/v1/CloseClient</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clientid</td>
+<td>int</td>
+<td>The ID of the client to close</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>string</td>
+<td>The result of the operation: success or error</td>
+</tr>
+<tr>
+<td>clientid</td>
+<td>int</td>
+<td>The ID of the client that was closed.</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Client ID Not Found</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Client ID Not Found&rdquo;}</td>
+</tr>
+<tr>
+<td>token expired</td>
+<td>{ “error”: “token expired”}</td>
+</tr>
+<tr>
+<td>token invalid</td>
+<td>{ “error”: “token invalid”}</td>
+</tr>
+</tbody></table>
+
+<h1 id="createinvoice">CreateInvoice</h1>
+
+<h2 id="createinvoice">CreateInvoice</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$authorization</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8'</span><span class="p">);</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'http://api.dichvuchothuechodat.top/api/v1/CreateInvoice'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$authorization</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span>
+    <span class="nb">http_build_query</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+             <span class="s1">'userid'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+        <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'Unpaid'</span><span class="p">,</span>
+        <span class="s1">'sendinvoice'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+        <span class="s1">'paymentmethod'</span> <span class="o">=&gt;</span> <span class="s1">'mailin'</span><span class="p">,</span>
+        <span class="s1">'taxrate'</span> <span class="o">=&gt;</span> <span class="s1">'10.00'</span><span class="p">,</span>
+        <span class="s1">'date'</span> <span class="o">=&gt;</span> <span class="s1">'2016-01-01'</span><span class="p">,</span>
+        <span class="s1">'duedate'</span> <span class="o">=&gt;</span> <span class="s1">'2016-01-08'</span><span class="p">,</span>
+        <span class="s1">'itemdescription1'</span> <span class="o">=&gt;</span> <span class="s1">'Sample Invoice Item'</span><span class="p">,</span>
+        <span class="s1">'itemamount1'</span> <span class="o">=&gt;</span> <span class="s1">'15.95'</span><span class="p">,</span>
+        <span class="s1">'itemtaxed1'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
+        <span class="s1">'itemdescription2'</span> <span class="o">=&gt;</span> <span class="s1">'Sample Second Invoice Item'</span><span class="p">,</span>
+        <span class="s1">'itemamount2'</span> <span class="o">=&gt;</span> <span class="s1">'1.00'</span><span class="p">,</span>
+        <span class="s1">'itemtaxed2'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+        <span class="s1">'autoappliedcredit'</span> <span class="o">=&gt;</span> <span class="s1">'0'</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"invoiceid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unpaid"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create an invoice using the provided parameters.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.dichvuchothuechodat.top/api/v1/CreateInvoice</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userid</td>
+<td>int</td>
+<td>The ID of the client to close</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>The status of the invoice being created (Defaults to Unpaid)</td>
+<td>no</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>bool</td>
+<td>Should the invoice be created in draft status (No need to pass $status also)</td>
+<td>no</td>
+</tr>
+<tr>
+<td>sendinvoice</td>
+<td>bool</td>
+<td>Should the Invoice Created Email be sent to the client (cannot be used with $draft)</td>
+<td>no</td>
+</tr>
+<tr>
+<td>paymentmethod</td>
+<td>string</td>
+<td>The payment method of the created invoice in system format</td>
+<td>no</td>
+</tr>
+<tr>
+<td>taxrate</td>
+<td>float</td>
+<td>The first level tax rate to apply to the invoice to override the system default</td>
+<td>no</td>
+</tr>
+<tr>
+<td>taxrate2</td>
+<td>float</td>
+<td>The second level tax rate to apply to the invoice to override the system default</td>
+<td>no</td>
+</tr>
+<tr>
+<td>date</td>
+<td>\Carbon\Carbon</td>
+<td>The date that the invoice should show as created YYYY-mm-dd</td>
+<td>no</td>
+</tr>
+<tr>
+<td>duedate</td>
+<td>\Carbon\Carbon</td>
+<td>The due date of the newly created invoice YYYY-mm-dd</td>
+<td>no</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td>The notes to appear on the created invoice</td>
+<td>no</td>
+</tr>
+<tr>
+<td>itemdescriptionx</td>
+<td>string</td>
+<td>The line items description X is an integer to add multiple invoice items</td>
+<td>no</td>
+</tr>
+<tr>
+<td>itemamountx</td>
+<td>float</td>
+<td>The line items amount</td>
+<td>no</td>
+</tr>
+<tr>
+<td>itemtaxedx</td>
+<td>bool</td>
+<td>The line items is taxed value</td>
+<td>no</td>
+</tr>
+<tr>
+<td>autoapplycredit</td>
+<td>bool</td>
+<td>Should credit on the client account be automatically applied to the invoice</td>
+<td>no</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>string</td>
+<td>The result of the operation: success or error</td>
+</tr>
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The ID of the newly created invoice</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>The status of the newly created invoice.</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Client ID Not Found</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Client ID Not Found&rdquo;}</td>
+</tr>
+<tr>
+<td>Cannot create and send a draft invoice in a single API request. Please create and send separately.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Cannot create and send a draft invoice in a single API request. Please create and send separately.&rdquo;}</td>
+</tr>
+<tr>
+<td>token expired</td>
+<td>{ “error”: “token expired”}</td>
+</tr>
+<tr>
+<td>token invalid</td>
+<td>{ “error”: “token invalid”}</td>
+</tr>
+</tbody></table>
+
+<h1 id="createoauthcredential">CreateOAuthCredential</h1>
+
+<h2 id="createoauthcredential">CreateOAuthCredential</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$authorization</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8'</span><span class="p">);</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'http://api.dichvuchothuechodat.top/api/v1/CreateOAuthCredential'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$authorization</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span>
+    <span class="nb">http_build_query</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+             <span class="s1">'granttype'</span> <span class="o">=&gt;</span> <span class="s1">'single_sign_on'</span><span class="p">,</span>
+        <span class="s1">'scope'</span> <span class="o">=&gt;</span> <span class="s1">'clientarea:sso clientarea:billing_info clientarea:announcements'</span><span class="p">,</span>
+        <span class="s1">'serviceId'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+        <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Billing and Announcements SSO'</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"credentialId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clientIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPANY-NAME.SQxOYrZOUTQC8YTkLQuQ0w=="</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60XScB</span><span class="se">\/</span><span class="s2">W8zzxtciWlvX8+OoO4ZAQj8dNLeFIulRlYhDgksrSJd0Olv+X7wyoJEWEOpZ9IivCaySN7s+</span><span class="se">\/</span><span class="s2">a++Tlg=="</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create an OAuth Credential.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.dichvuchothuechodat.top/api/v1/CreateOAuthCredential</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grantType</td>
+<td>string</td>
+<td>One of ‘authorization_code’ or ‘single_sign_on’</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string</td>
+<td>A space separated list of valid scopes from tbloauthserver_scopes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The name to give the oAuth Credential for the authorization_code $grantType</td>
+<td>no</td>
+</tr>
+<tr>
+<td>serviceId</td>
+<td>int</td>
+<td>The id of the service for the single_sign_on $grantType</td>
+<td>no</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>The description of the OAuth Credential</td>
+<td>no</td>
+</tr>
+<tr>
+<td>logoUri</td>
+<td>string</td>
+<td>URL or Path Relative to the Base WHMCS Client Area Directory to a logo image file for this application</td>
+<td>no</td>
+</tr>
+<tr>
+<td>redirectUri</td>
+<td>string</td>
+<td>Authorised Redirect URIs</td>
+<td>no</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>string</td>
+<td>The result of the operation: success or error</td>
+</tr>
+<tr>
+<td>credentialId</td>
+<td>int</td>
+<td>The ID of the newly created oauth credential</td>
+</tr>
+<tr>
+<td>clientIdentifier</td>
+<td>string</td>
+<td>The randomly generated oauth client identifier.</td>
+</tr>
+<tr>
+<td>clientSecret</td>
+<td>string</td>
+<td>The randomly generated secret for the auth credential.</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A valid grant type is required.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;A valid grant type is required.&rdquo;}</td>
+</tr>
+<tr>
+<td>The requested grant type “x” is invalid.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;The requested grant type “x” is invalid.&rdquo;}</td>
+</tr>
+<tr>
+<td>A service ID is required for the single sign-on grant type</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;A service ID is required for the single sign-on grant type&rdquo;}</td>
+</tr>
+<tr>
+<td>At least one valid scope is required.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;At least one valid scope is required.&rdquo;}</td>
+</tr>
+<tr>
+<td>The requested scope “x” is invalid</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;The requested scope “x” is invalid.&rdquo;}</td>
+</tr>
+<tr>
+<td>token expired</td>
+<td>{ “error”: “token expired”}</td>
+</tr>
+<tr>
+<td>token invalid</td>
+<td>{ “error”: “token invalid”}</td>
+</tr>
+</tbody></table>
+
+<h1 id="createproject">CreateProject</h1>
+
+<h2 id="createproject">CreateProject</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$authorization</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiIsImlhdCI6MTQ5OTIyNjM5NSwiZXhwIjoxNDk5MzEyNzk1LCJuYmYiOjE0OTkyMjYzOTUsImp0aSI6ImRqQjhnbGhCaVBhdG5WOU0ifQ.EMXB-xHdHGIzwbDWrIuQHff-NEe3qIZJ4lzxssjiPw8'</span><span class="p">);</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'http://api.dichvuchothuechodat.top/api/v1/CreateProject'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$authorization</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span>
+    <span class="nb">http_build_query</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+             <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'This is a Test Project'</span><span class="p">,</span>
+            <span class="s1">'adminid'</span> <span class="o">=&gt;</span> <span class="s1">'2'</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project has been created"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates a new project</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.dichvuchothuechodat.top/api/v1/CreateProject</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>The title of the new project</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>adminid</td>
+<td>int</td>
+<td>The adminId the project will be associated with</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>int</td>
+<td>The user that the project is for</td>
+<td>no</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>The status of the project as defined in Project Management Settings</td>
+<td>no</td>
+</tr>
+<tr>
+<td>created</td>
+<td>\Carbon\Carbon</td>
+<td>The created date of the project in Y-m-d format</td>
+<td>no</td>
+</tr>
+<tr>
+<td>duedate</td>
+<td>\Carbon\Carbon</td>
+<td>The duedate date of the project in Y-m-d format</td>
+<td>no</td>
+</tr>
+<tr>
+<td>completed</td>
+<td>bool</td>
+<td>Is the project completed</td>
+<td>no</td>
+</tr>
+<tr>
+<td>ticketids</td>
+<td>string</td>
+<td>A comma separated list of ticket IDs to associate with the project</td>
+<td>no</td>
+</tr>
+<tr>
+<td>invoiceids</td>
+<td>string</td>
+<td>A comma separated list of invoice IDs to associate with the project</td>
+<td>no</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>string</td>
+<td>The result of the operation: success or error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>‘Project has been created’</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Client ID Not Found</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Client ID Not Found&rdquo;}</td>
+</tr>
+<tr>
+<td>Admin ID not Set.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Admin ID not Set.&rdquo;}</td>
+</tr>
+<tr>
+<td>Admin ID Not Found</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Admin ID Not Found&rdquo;}</td>
+</tr>
+<tr>
+<td>Project Management is not active.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Project Management is not active.&rdquo;}</td>
+</tr>
+<tr>
+<td>Project Title is Required.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Project Title is Required.&rdquo;}</td>
 </tr>
 <tr>
 <td>token expired</td>
