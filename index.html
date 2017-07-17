@@ -387,12 +387,12 @@ curl_close($ch);
 <td>{ “result”: “error”, “messages”: “User not exists”}</td>
 </tr>
 <tr>
-<td>token expired</td>
-<td>{ “error”: “token expired”}</td>
+<td>The password field is required.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;, “password”: [&ldquo;The password field is required.&rdquo;]}</td>
 </tr>
 <tr>
-<td>token invalid</td>
-<td>{ “error”: “token invalid”}</td>
+<td>The password field is required.</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;, “email”: [&ldquo;The email field is required.&rdquo;]}</td>
 </tr>
 </tbody></table>
 
@@ -3383,15 +3383,21 @@ curl_close($ch);
 </thead><tbody>
 <tr>
 <td>Order ID not found or Status not Pending</td>
-<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Order ID not found or Status not Pending</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Order ID not found or Status not Pending &rdquo;}</td>
+</tr>
+<tr>
+<td>Subscription Cancellation Failed - Please check the gateway log for further information</td>
+<td>{&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Subscription Cancellation Failed - Please check the gateway log for further information &rdquo;}</td>
+</tr>
+<tr>
+<td>token expired</td>
+<td>{ “error”: “token expired”}</td>
+</tr>
+<tr>
+<td>token invalid</td>
+<td>{ “error”: “token invalid”}</td>
 </tr>
 </tbody></table>
-
-<p>&rdquo;}
-Subscription Cancellation Failed - Please check the gateway log for further information | {&ldquo;result&rdquo;: &ldquo;error&rdquo;,&ldquo;message&rdquo;: &ldquo;Subscription Cancellation Failed - Please check the gateway log for further information
-&rdquo;}
-token expired | { “error”: “token expired”}
-token invalid | { “error”: “token invalid”}</p>
 
 <h1 id="affiliateactivate">AffiliateActivate</h1>
 
