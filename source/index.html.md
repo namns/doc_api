@@ -819,7 +819,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'clientid' => '1',
+            'clientid' => '1',
             'description' => 'This is a billable item',
             'amount' => '10.00',
             'invoiceaction' => 'recur',
@@ -841,7 +841,7 @@ curl_close($ch);
 
 ```json
 {
-     "result": "success",
+    "result": "success",
     "billableid": "1"
 }
 ```
@@ -898,7 +898,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-              'firstname' => 'John',
+            'firstname' => 'John',
             'lastname' => 'Doe',
             'email' => 'john.doe@example.com',
             'address1' => '123 Main Street',
@@ -925,7 +925,7 @@ curl_close($ch);
 
 ```json
 {
-     "result": "success",
+    "result": "success",
     "clientid": "1"
 }
 ```
@@ -1024,7 +1024,7 @@ curl_close($ch);
 
 ```json
 {
-     "result": "success",
+    "result": "success",
     "noteid": "1"
 }
 ```
@@ -1072,7 +1072,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'clientid' => '7',
+            'clientid' => '7',
             'firstname' => 'Nam',
             'lastname' => 'ns',
             'email' => 'namns@appota.com',
@@ -1089,7 +1089,7 @@ curl_close($ch);
 
 ```json
 {
-     "result": "success",
+    "result": "success",
     "contactid": "1"
 }
 ```
@@ -1154,7 +1154,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'clientid' => '1',
+            'clientid' => '1',
             'description' => 'Adding funds via api',
             'amount' => '12.34',
         )
@@ -1170,7 +1170,7 @@ curl_close($ch);
 
 ```json
 {
-     "result": "success",
+    "result": "success",
     "newbalance": "123.45"
 }
 ```
@@ -1218,7 +1218,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'invoiceid' => '1',
+            'invoiceid' => '1',
             'transid' => 'D28DJIDJW393JDWQKQI332',
             'gateway' => 'mailin',
             'date' => '2016-01-01 12:33:12',
@@ -1286,7 +1286,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'type' => 'other',
+            'type' => 'other',
             'gid' => '1',
             'name' => 'Sample Product',
             'welcomeemail' => '5',
@@ -1379,7 +1379,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'ticketid' => '1',
+            'ticketid' => '1',
             'message' => 'This is a sample ticket note',
             'markdown' => true,
         )
@@ -1440,7 +1440,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'ticketid' => '1',
+            'ticketid' => '1',
             'message' => 'This is a sample ticket reply',
             'clientid' => '1',
             'customfields' => '("1" => "Google")',
@@ -1514,7 +1514,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'paymentmethod' => 'paypal',
+            'paymentmethod' => 'paypal',
             'userid' => '1',
             'transid' => 'FJWEK32DWO329JFW',
             'date' => '01/01/2016',
@@ -1711,7 +1711,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-           'orderid' => '1',
+            'orderid' => '1',
             'registrar' => 'enom',
             'autosetup' => true,
             'sendemail' => true,
@@ -1842,7 +1842,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'userid' => '1',
+        'userid' => '1',
 	    'status' => 'Unpaid',
 	    'sendinvoice' => '1',
 	    'paymentmethod' => 'mailin',
@@ -1933,7 +1933,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'title' => 'This is a Test Project',
+            'title' => 'This is a Test Project',
     		'adminid' => '2',
         )
     )
@@ -2007,7 +2007,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'subject' => 'Test Quote Subject',
+        'subject' => 'Test Quote Subject',
 	    'stage' => 'Draft',
 	    'userid' => '1',
 	    'validuntil' => '01/01/2016',
@@ -2101,7 +2101,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
              'moduleType' => 'gateway',
-            'moduleName' => 'paypal',
+             'moduleName' => 'paypal',
         )
     )
 );
@@ -2540,7 +2540,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "ns1": "ns1.example.com",
     "ns2": "ns1.example.com"
 }
@@ -2716,7 +2716,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $authorization);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-             'domainid' => '1',
+           'domainid' => '1',
     	   'idprotect' => true,
         )
     )
@@ -2793,7 +2793,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "status": "unavailable",
     "whois": "xxx"
 }
@@ -2855,7 +2855,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": "2",
     "startnumber": "0",
     "activity[entry][0][id]": "2",
@@ -2932,7 +2932,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": "2",
     "startnumber": "0",
     "numreturned": "2",
@@ -3023,7 +3023,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "totalresults": "1",
     "startnumber": "0",
     "numreturned": "1",
@@ -3097,7 +3097,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "currentDatetime": "2016-11-09 15:37:58",
     "lastDailyCronInvocationTime": "2016-11-09 11:00:00",
     "startdate": "2016-11-01 00:00:00",
@@ -3164,7 +3164,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "totalresults": "2",
     "startnumber": "0",
     "numreturned": "2",
@@ -3241,7 +3241,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "totalresults": "1",
     "currencies[currency][0][id]": "1",
     "currencies[currency][0][code]": "USD",
@@ -3305,7 +3305,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": "2",
     "emailtemplates[emailtemplate][0][id]": "38",
     "emailtemplates[emailtemplate][0][name]": "Automated Password Reset",
@@ -3373,7 +3373,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": 4,
     "statuses": {
         "status": [
@@ -3452,7 +3452,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": 1,
     "paymentmethods": {
         "paymentmethod": [
@@ -3519,7 +3519,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": 1,
     "paymentmethods": {
         "paymentmethod": [
@@ -3606,7 +3606,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": "1",
     "startnumber": 0,
     "numreturned": 1,
@@ -3724,7 +3724,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": 1,
     "staffonline": {
         "staff": [
@@ -3792,7 +3792,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "income_today": "$0.00 USD",
     "income_thismonth": "$1656.35 USD",
     "income_thisyear": "$9028.40 USD",
@@ -3909,7 +3909,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": 1,
     "departments": {
         "department": [
@@ -4275,7 +4275,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": "4",
     "categories": {
         "category": [
@@ -4363,7 +4363,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "totalresults": "4",
     "predefinedreplies": {
         "predefinedreply": [
@@ -4686,7 +4686,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "id": "1",
     "tid": "516757",
     "c": "KPqH7yG3"
@@ -4766,7 +4766,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "status": "Pass"
 }
 ```
@@ -4821,7 +4821,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'city' => '',
             'state' => '',
             'address2' => '',
-	    'country' => '',
+	        'country' => '',
             'phonenumber' => '',
         )
     )
@@ -4836,7 +4836,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "clientid": "1"
 }
 ```
@@ -4933,7 +4933,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "domainid": "1"
 }
 ```
@@ -5006,7 +5006,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
 	    'invoiceid' => '1',
-            'status' => 'Unpaid',
+        'status' => 'Unpaid',
 	    'itemdescription[13]' => 'Sample Updated Invoice Item',
 	    'itemamount[13]' => '16.95',
 	    'itemtaxed[13]' => '0',
@@ -5024,7 +5024,7 @@ curl_close($ch);
 
 ```json
 {
-   "result": "success",
+    "result": "success",
     "invoiceid": "1"
 }
 ```
@@ -5090,11 +5090,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
 	    'quoteid' => '1',
-            'subject' => 'Test Quote Subject',
+        'subject' => 'Test Quote Subject',
 	    'stage' => 'Draft',
 	    'firstname' => 'nam',
 	    'lastname' => 'ns',
-            'email' => 'namns@kdata.vn',
+        'email' => 'namns@kdata.vn',
 	    'address1' => 'ha noi',
 	    'city' => 'ha noi',
 	    'country' => 'VN',
@@ -5183,11 +5183,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
 	    'ticketid' => '1',
-            'subject' => 'Test Quote Subject',
+        'subject' => 'Test Quote Subject',
 	    'status' => 'Closed',
 	    'name' => 'nam',
 	    'email' => 'namns@kdata.vn',
-            'cc' => 'test',
+        'cc' => 'test',
 	    'priority' => 'Low',
         )
     )
@@ -5202,7 +5202,7 @@ curl_close($ch);
 
 ```json
 {
-  "result": "success",
+    "result": "success",
     "ticketid": "1"
 }
 ```
